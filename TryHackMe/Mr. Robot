@@ -1,0 +1,162 @@
+# Mr. Robot - TryHackMe
+
+## Objective
+
+The objective of this room was to practice web application enumeration, information gathering, credential discovery, brute-force techniques, Linux enumeration, and privilege escalation in a realistic CTF-style environment inspired by the Mr. Robot series.
+
+---
+
+## Skills Practiced
+
+* Web Enumeration
+* robots.txt Analysis
+* Hidden File Discovery
+* Directory Enumeration
+* Credential Discovery
+* Brute Force Techniques
+* Linux Enumeration
+* Privilege Escalation
+
+---
+
+## Tools Used
+
+* Nmap
+* Gobuster
+* Web Browser
+* Linux Command Line
+* Wordlists
+
+---
+
+## Enumeration
+
+### Initial Reconnaissance
+
+The assessment began with network and web application enumeration to identify exposed services and potential attack surfaces.
+
+Example command:
+
+```bash
+nmap -sC -sV <target-ip>
+```
+
+Key findings:
+
+* Identified running services and service versions.
+* Discovered a web application as the primary attack surface.
+* Gathered information useful for further enumeration.
+
+---
+
+### robots.txt Analysis
+
+One of the first interesting discoveries was the robots.txt file.
+
+Example command:
+
+```bash
+curl http://<target-ip>/robots.txt
+```
+
+Learning points:
+
+* robots.txt files can expose sensitive paths and information.
+* Hidden resources should always be investigated.
+* Small information disclosures can become valuable attack vectors.
+
+---
+
+### Hidden File and Directory Discovery
+
+Performed web content enumeration to identify hidden files and directories.
+
+Example command:
+
+```bash
+gobuster dir -u http://<target-ip> -w <wordlist>
+```
+
+Learning points:
+
+* Hidden content can reveal credentials, notes, or application functionality.
+* Enumeration often provides more value than exploitation during the early stages of an assessment.
+
+---
+
+## Credential Discovery and Brute Force Techniques
+
+The room demonstrated how weak credential management can contribute to a successful compromise.
+
+Learning points:
+
+* Credentials may be exposed through poor security practices.
+* Brute-force attacks become more effective when supported by intelligence gathered during enumeration.
+* Authentication systems should be protected through strong passwords and proper account security controls.
+
+---
+
+## Linux Enumeration
+
+After gaining access, Linux enumeration was performed to identify privilege escalation opportunities.
+
+Common commands used:
+
+```bash
+whoami
+id
+uname -a
+sudo -l
+find / -perm -4000 2>/dev/null
+```
+
+Key activities:
+
+* Identifying current user privileges.
+* Examining system information.
+* Investigating permissions and available binaries.
+* Searching for potential privilege escalation vectors.
+
+---
+
+## Privilege Escalation Concepts Learned
+
+This room reinforced several important privilege escalation concepts:
+
+* Thorough local enumeration is essential.
+* User permissions should always be reviewed.
+* Misconfigured binaries can become escalation vectors.
+* Small findings gathered during enumeration may become critical later.
+* Privilege escalation opportunities are often the result of system misconfigurations rather than advanced exploits.
+
+---
+
+## Key Learning Points
+
+* Enumeration should always come before exploitation.
+* robots.txt should never be ignored during web assessments.
+* Hidden files and directories can expose valuable information.
+* Weak credential management increases security risk.
+* Multiple low-severity findings can be chained together to achieve full system compromise.
+* Thorough enumeration often determines the success of an engagement.
+
+---
+
+## My Experience
+
+This room significantly improved my understanding of web application enumeration and the importance of information gathering.
+
+The most valuable lesson I learned was that successful attacks often rely on combining multiple small discoveries rather than finding a single critical vulnerability.
+
+The room also helped me gain practical experience in identifying hidden content, discovering credentials, performing Linux enumeration, and understanding privilege escalation methodology.
+
+---
+
+## What I Learned
+
+* How to approach web application enumeration systematically.
+* Why robots.txt should always be reviewed.
+* The importance of discovering hidden files and directories.
+* How credential discovery supports further exploitation.
+* How Linux enumeration helps identify privilege escalation opportunities.
+* Why enumeration is the foundation of penetration testing.
