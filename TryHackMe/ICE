@@ -1,0 +1,137 @@
+# ICE - TryHackMe
+
+## Objective
+
+The objective of this room was to practice service enumeration, vulnerability identification, exploitation using Metasploit, and post-exploitation using Meterpreter.
+
+---
+
+## Skills Practiced
+
+* Network Enumeration
+* Service Discovery
+* Vulnerability Research
+* Metasploit Framework
+* Meterpreter
+* Windows Enumeration
+* Post Exploitation
+
+---
+
+## Tools Used
+
+* Nmap
+* Metasploit Framework
+* Meterpreter
+
+---
+
+## Enumeration
+
+### Initial Reconnaissance
+
+The assessment started with service enumeration to identify exposed services and potential attack surfaces.
+
+Example command:
+
+```bash
+nmap -sC -sV <target-ip>
+```
+
+### Key Findings
+
+* RDP service was identified.
+* A web service was running on port 8000.
+* Hostname information was discovered.
+* Icecast was identified as an exposed service.
+
+---
+
+## Service Investigation
+
+After identifying Icecast, further research was performed to understand the service and investigate potential security weaknesses.
+
+Learning points:
+
+* Service version information can be valuable during assessments.
+* Enumeration findings often guide the next phase of testing.
+* Understanding a service before exploitation is important.
+
+---
+
+## Exploitation
+
+Metasploit Framework was used to interact with the identified service and obtain access to the target system.
+
+Typical workflow:
+
+```bash
+search icecast
+use <module>
+show options
+run
+```
+
+Learning points:
+
+* Metasploit simplifies the exploitation process.
+* Proper enumeration makes exploitation easier.
+* Understanding the target service improves decision-making during assessments.
+
+---
+
+## Post Exploitation
+
+After successful exploitation, a Meterpreter session was obtained.
+
+Common commands used:
+
+```bash
+sysinfo
+getuid
+help
+```
+
+Activities performed:
+
+* System information gathering
+* User identification
+* Host enumeration
+* Session interaction
+
+Learning points:
+
+* Enumeration continues even after gaining access.
+* Post-exploitation helps build a better understanding of the target system.
+* Meterpreter provides useful capabilities for system interaction and information gathering.
+
+---
+
+## Key Learning Points
+
+* Enumeration is the foundation of penetration testing.
+* Service discovery can reveal potential attack paths.
+* Accurate service identification is important before exploitation.
+* Metasploit can be used to efficiently test known vulnerabilities.
+* Post-exploitation activities provide valuable information about a compromised system.
+
+---
+
+## My Experience
+
+This room helped me understand the complete workflow from enumeration to exploitation and post-exploitation.
+
+The most valuable lesson I learned was how a single service discovered during enumeration can lead to a complete attack path when investigated properly.
+
+I also gained practical experience using Metasploit and Meterpreter in a controlled lab environment.
+
+---
+
+## What I Learned
+
+* How to identify exposed services using Nmap.
+* How to investigate discovered services.
+* Basic Metasploit workflow.
+* Meterpreter fundamentals.
+* The importance of post-exploitation activities.
+* Why enumeration is one of the most important phases of a penetration test.
